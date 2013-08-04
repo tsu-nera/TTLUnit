@@ -1,0 +1,17 @@
+UsernamePrompt = 'login:'
+PasswordPrompt = 'Password:'
+
+Username = 'tsu-nera'
+getpassword 'password.dat' Username Password
+
+; login
+connect 'saru:23 /nossh /T=1'
+
+wait   UsernamePrompt
+sendln Username
+
+wait   PasswordPrompt
+sendln Password
+
+; OK, auto login complete.
+exit

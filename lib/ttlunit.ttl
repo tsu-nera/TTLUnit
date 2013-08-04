@@ -1,0 +1,75 @@
+; Initialize
+failed_tests  = ''
+
+total_count   = 0
+success_count = 0
+fail_count    = 0
+
+for i 0 (TEST_SUITE_MAX-1)
+
+    ; Test Suite Setup
+    makepath include_path TEST_DIR 'setup.ttl'
+    filesearch include_path
+    if result=1 include include_path
+
+    ts_dir = TEST_DIR
+    strconcat ts_dir test_suite[i]
+
+    ; Search Test Case
+    extpat = test_suite[i]
+    strconcat extpat '/'
+    strconcat extpat TEST_PREFIX
+
+    setdir TEST_DIR
+    findfirst dh extpat filename
+    while result
+
+      ; Skip ~files for cygwin
+      strmatch filename '.ttl~$'
+      if result<>0 goto find_next_testcase
+
+      ; Log start
+      makepath include_path LIB_DIR 'log_start.ttl'
+      include  include_path
+
+      ; Test Case Setup
+      makepath include_path ts_dir 'setup.ttl'
+      filesearch include_path 
+      if result=1 include include_path
+
+      expect_str=''
+
+      ; Execute Test Case
+      setsync 1
+      makepath include_path ts_dir filename
+      include include_path
+      setsync 0
+
+      ; Result Count
+      makepath include_path LIB_DIR 'result_count.ttl' 
+      include include_path
+
+      ; Test Case teardown
+      makepath include_path ts_dir 'teardown.ttl'
+      filesearch include_path
+      if result=1 include include_path
+
+      ; Log End
+      if LOG_MODE!=0 logclose
+
+      :find_next_testcase
+      findnext dh filename
+
+  endwhile
+
+  ; Test Suite teardown
+  makepath include_path TEST_DIR 'teardown.ttl'
+  filesearch include_path
+  if result=1 include include_path
+
+  findclose dh
+next
+
+; Test Summary
+makepath include_path LIB_DIR 'test_summary.ttl'
+include  include_path

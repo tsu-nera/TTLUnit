@@ -1,0 +1,11 @@
+; Log Start
+sprintf2 logfile "%s%s" LOG_DIR filename
+strreplace logfile 1 '\.ttl' '.log'
+
+if LOG_MODE!=0 then	
+  ; Open Log File
+  ; binary flag 0 / append flag 0 
+  logopen logfile 0 0
+endif
+
+exit

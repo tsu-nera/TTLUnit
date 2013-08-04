@@ -1,0 +1,11 @@
+;Test
+sendln 'mkdir testdir'
+
+;Assert
+sendln 'ls'
+
+expect_str = 'testdir2'
+Wait expect_str
+
+;tearDown
+sendln 'rmdir testdir'

@@ -1,0 +1,16 @@
+; Directory Setting
+BASE_DIR = 'C:\cygwin\home\TSUNEMICHI\src\ttlunit\'
+
+LIB_DIR = BASE_DIR
+strconcat LIB_DIR 'lib\'
+
+TEST_DIR = BASE_DIR
+strconcat TEST_DIR 'example\'
+
+LOG_DIR = TEST_DIR
+strconcat LOG_DIR 'log\'
+
+; Options
+TEST_PREFIX = 'Test_*.ttl'
+LOG_MODE    = 1 ; Log mode OFF:0 On:1
+timeout = 5

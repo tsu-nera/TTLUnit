@@ -1,0 +1,10 @@
+;Test
+sendln 'pwd'
+
+;Assert
+expect_str = '/home/tsu--nera'
+Wait expect_str
+
+;tearDown
+
+exit

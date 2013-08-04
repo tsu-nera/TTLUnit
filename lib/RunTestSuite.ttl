@@ -1,0 +1,26 @@
+include 'config.ttl'
+
+TEST_SUITE_MAX = 1
+strdim test_suite TEST_SUITE_MAX
+
+strcompare param2 ''
+if result = 0 then
+    inputbox 'Input Test Suite Name' '[Input]'
+    test_suite[0] = inputstr
+else
+    basename test_suite[0] param2
+endif
+
+test_suite_dir = TEST_DIR
+strconcat test_suite_dir test_suite[0]
+
+foldersearch test_suite_dir
+
+if result=0 then
+   sprintf2 error_msg '%s is not found' test_suite_dir
+   messagebox error_msg 'Error'
+   end
+endif
+
+include 'ttlunit.ttl'
+

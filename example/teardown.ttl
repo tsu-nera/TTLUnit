@@ -1,0 +1,5 @@
+; Disconnect to server
+makepath include_path TEST_DIR 'test_helper/telnet_end.ttl'
+include  include_path
+
+mpause 500

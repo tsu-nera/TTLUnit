@@ -1,0 +1,7 @@
+; Test Suite Count
+TEST_SUITE_MAX = 2
+strdim test_suite TEST_SUITE_MAX
+
+; Test Suite
+test_suite[0] = 'ts_mkdir'
+test_suite[1] = 'ts_pwd'

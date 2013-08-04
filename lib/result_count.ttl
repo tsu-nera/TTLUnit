@@ -1,0 +1,19 @@
+total_count = total_count + 1
+
+if (result = 0) then
+   strconcat failed_tests test_suite[i]
+   strconcat failed_tests '/'
+   strconcat failed_tests filename
+   strlen expect_str 
+   if result>0 then
+      sprintf ' expect: %s actual: timeout(%d)' expect_str timeout
+      strconcat failed_tests inputstr
+   endif
+   strconcat failed_tests '\n'
+   
+   fail_count = fail_count + 1
+else
+   success_count = success_count + 1
+endif
+
+exit

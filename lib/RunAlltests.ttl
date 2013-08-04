@@ -1,0 +1,6 @@
+include 'config.ttl'
+
+makepath include_path TEST_DIR 'ts_list.ttl'
+include include_path
+
+include  'ttlunit.ttl'

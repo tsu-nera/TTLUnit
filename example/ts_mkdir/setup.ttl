@@ -1,0 +1,2 @@
+sendln  'cd tmp/ttldev'
+exit

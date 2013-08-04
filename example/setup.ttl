@@ -1,0 +1,5 @@
+; Connect to Server
+makepath include_path TEST_DIR 'test_helper/telnet_connect.ttl' 
+include  include_path
+
+exit

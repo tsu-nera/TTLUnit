@@ -1,0 +1,29 @@
+; Create Summary Message
+int2str success_count_str success_count
+int2str total_count_str total_count
+int2str fail_count_str fail_count
+
+strconcat msgbox_content total_count_str
+strconcat msgbox_content " Test "
+strconcat msgbox_content success_count_str
+strconcat msgbox_content " Success "
+strconcat msgbox_content fail_count_str
+strconcat msgbox_content " Failure "
+strconcat msgbox_content "\n"
+if fail_count=0 then
+  strconcat msgbox_content "OK"
+else
+  strconcat msgbox_content "FAIL"
+endif
+
+strconcat msgbox_content '\n'
+strconcat msgbox_content '----------------------------\n'
+strconcat msgbox_content 'Failed Tests:\n'
+strconcat msgbox_content failed_tests
+
+
+
+strspecial msgbox_content ;convert \n to Enter
+
+; Show Test Summary
+messagebox msgbox_content "[Test Summary]"
