@@ -4,6 +4,10 @@
 
 TTLUnit is xUnit framework for Tera Term Language(TTL).
 
+### Requirements
+
+- Teraterm & ttlmacro >= 4.72
+
 ### Usage
 #### Set Folder path
 Before start testing, Set your Folder path.Modify lib/config.ttl
@@ -21,7 +25,7 @@ You may also check these options.
 ### Make Test Suite Folder
 In TTLUnit, Test Suite is managed by folders.
 
-Make Test Suite Folder in your ${TEST_DIR}
+ake Test Suite Folder in your ${TEST_DIR}
 
 You alse need to make Test Suite List File.Create 'ts_list.ttl' in your ${TEST_DIR} and add your test suite like these
 
