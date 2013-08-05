@@ -1,11 +1,11 @@
 UsernamePrompt = 'login:'
 PasswordPrompt = 'Password:'
 
-Username = 'tsu-nera'
+Username = 'username'
 getpassword 'password.dat' Username Password
 
-; login
-connect 'saru:23 /nossh /T=1'
+; login 23:telnet
+connect 'YOURIPADDRESS:23 /nossh /T=1'
 
 wait   UsernamePrompt
 sendln Username
